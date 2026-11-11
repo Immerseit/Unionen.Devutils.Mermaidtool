@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>Mermaid-verkstad</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/mermaid.min.js"></script>
+  <script src="/markdown-it.min.js"></script>
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">M</span>
+      <div>
+        <h1>Jonas Mermaid-verkstad</h1>
+        <p>Skriv, visualisera och spara diagram lokalt</p>
+      </div>
+    </div>
+    <div class="actions">
+      <button id="open-button" class="button secondary" type="button">Öppna fil</button>
+      <button id="save-button" class="button secondary" type="button">Spara</button>
+      <button id="save-as-button" class="button primary" type="button">Spara som…</button>
+      <input id="file-input" type="file" accept=".mmd,.mermaid,.md,.markdown,text/plain,text/markdown" hidden>
+    </div>
+  </header>
+
+  <main class="workspace">
+    <section class="panel source-panel" aria-labelledby="source-title">
+      <div class="panel-heading">
+        <div>
+          <h2 id="source-title">Mermaid-kod</h2>
+          <span id="file-name" class="file-name">Nytt diagram.mmd</span>
+        </div>
+        <span class="hint">Ändringarna visas automatiskt</span>
+      </div>
+      <label class="visually-hidden" for="source">Mermaid-källkod</label>
+      <textarea id="source" spellcheck="false" autocapitalize="off" autocomplete="off" aria-label="Mermaid-källkod"></textarea>
+    </section>
+
+    <section id="preview-panel" class="panel preview-panel" aria-labelledby="preview-title">
+      <div class="panel-heading">
+        <div>
+          <h2 id="preview-title">Förhandsvisning</h2>
+          <span id="status" class="status" role="status" aria-live="polite">Redo</span>
+        </div>
+        <span class="navigation-hint">Dra för att flytta · Ctrl+scroll för zoom</span>
+        <div class="preview-actions">
+          <button id="zoom-out" class="icon-button" type="button" aria-label="Zooma ut" title="Zooma ut">−</button>
+          <button id="zoom-reset" class="icon-button zoom-value" type="button" aria-label="Återställ zoom" title="Återställ zoom">100%</button>
+          <button id="zoom-in" class="icon-button" type="button" aria-label="Zooma in" title="Zooma in">+</button>
+          <button id="maximize-button" class="icon-button maximize-button" type="button" aria-label="Maximera diagrammet" title="Maximera diagrammet">⛶</button>
+        </div>
+      </div>
+      <div id="preview" class="preview" aria-label="Diagramförhandsvisning" title="Dra för att panorera · Ctrl+scroll för att zooma"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>Filerna hanteras lokalt i webbläsaren.</span>
+    <span>Stöd för .mmd, .mermaid och Markdown med Mermaid-block.</span>
+  </footer>
+</body>
+</html>
